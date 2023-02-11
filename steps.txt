@@ -1,0 +1,59 @@
+Steps:
+
+1.Create a Java application and a database in MySQL.
+2.Run the Java application and fill the database.
+3.API testing- Postman.
+
+Test Cases:
+1.Add roles in the database dynamically.
+URL:http://localhost:8080/restapi/role
+Code:
+{
+"name":"TRIAL_USER"
+}
+
+2.Add Users in the database which can be used for authentication purposes.
+URL:http://localhost:8080/restapi/user
+code:
+{
+"username":"temp",
+"password":"12345",
+"roles":[{
+"id":2,
+"name":"USER"
+}]
+}
+
+3.Add employees data in the database if authenticated user is ADMIN.
+URL:http://localhost:8080/restapi/employees
+code:
+{
+"firstName":"gl",
+"lastName":"postman",
+"email":"postman@gamil.com"
+}
+
+4.Provide an endpoint to list all the employees stored in the database.
+URL:http://localhost:8080/restapi/employees
+
+5.Provide endpoint to get an employee record based on the id.
+URL:http://localhost:8080/restapi/employees/2
+
+6.Provide an endpoint to update an existing employee record with the given updated json object.
+URL:http://localhost:8080/restapi/employees
+code:
+{
+"id":1,
+"firstName":"postman",
+"lastName":"postman",
+"email":"postman@gamil.com"
+}
+
+7.Provide an endpoint to delete an existing employee record based on the id.
+URL:http://localhost:8080/restapi/employees/1
+
+8.Provide an endpoint to get an employee by his/her first name and if found more than one record then list them all.
+http://localhost:8080/restapi/employees/search/y
+
+9.list all employee records sorted on their first name in either ascending order or descending order.
+http://localhost:8080/restapi/employees/sort?order=”desc”
